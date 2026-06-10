@@ -73,12 +73,23 @@ public class VentanaRutas {
                         Integer.parseInt(
                                 txtPeso.getText()
                         );
-                GrafoInterfaz.grafo
-                        .agregarRuta(o, d, peso);
+                if (peso > 0) {
+                    GrafoInterfaz.grafo
+                            .agregarRuta(o, d, peso);
+                    txtOrigen.clear();
+                    txtDestino.clear();
+                    txtPeso.clear();
+                }else{
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
 
-                txtOrigen.clear();
-                txtDestino.clear();
-                txtPeso.clear();
+                    alert.setContentText(
+                            "El peso debe ser mayor que 0"
+                    );
+
+                    alert.show();
+
+                }
+
             }
 
         });
